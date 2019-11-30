@@ -1,7 +1,6 @@
 <div class="root-home-page">
-	<header-component v-on:sort="sortParam"/>
-	{{ sort }}
-	<h3>| Наши товары</h3>
-	<main-component />
+	<header-component v-on:sort="sortParam" v-bind:lengthProducts="lengthProducts"/>
+	<h3>| {{ sort }}</h3>
+	<main-component @addsProducts="addsProductsInBasket"/>
 	<footer-component />
 </div>

@@ -1,0 +1,13 @@
+@import 'src/styles/mixins';
+@import 'src/styles/variables';
+
+.root-basket-component {
+	@include flex(row, space-between, flex-start);
+	color: $color-white;
+	background-color: $color-gray;
+	margin: 40px 100px;
+	height: 500px;
+	width: 1000px;
+	position: fixed;
+	z-index: 999999;
+}

@@ -6,17 +6,18 @@ export default {
     HeaderComponent,
     MainComponent
   },
-  props: {
-    title: String
-  },
   data () {
     return {
-      sort: ''
+      sort: 'Наши товары',
+      lengthProducts: 0
     }
   },
   methods: {
     sortParam (param) {
       this.sort = param
+    },
+    addsProductsInBasket (length) {
+      this.lengthProducts = length
     }
   }
 }

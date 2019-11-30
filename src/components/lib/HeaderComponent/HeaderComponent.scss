@@ -18,4 +18,28 @@
 	.title {
 		font-size: 20px;
 	}
+	.basket {
+		@include flex(row, space-between, center);
+		cursor: pointer;
+		color: $color-white;
+		background-color: $color-black;
+		border: 0;
+		outline: none;
+		font-size: 20px;
+		&.disabled {
+			cursor: not-allowed;
+			background: $color-gray;
+			color: $color-white;
+		}
+		.length-products {
+			margin: 4px;
+			padding: 0 5px;
+			background: $color-error;
+			border-radius: 50%;
+			&.disabled {
+				background: $color-gray;
+				color: $color-white;
+			}
+		}
+	}
 }
