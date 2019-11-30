@@ -1,9 +1,0 @@
-<div class="root-login-component">
-  <form class="login-form">
-    <b>Login to Chat</b>
-    <input type="email" class="field" v-model="obj.Email" placeholder="E-mail" @keydown="Enter"></input>
-    <!-- <p class="error">123</p> -->
-    <input type="password" class="field" v-model="obj.Password" placeholder="Password" @keydown="Enter"></input>
-    <button-account @login="login" v-bind:bool="emptyInput" label="Login"/>
-  </form>
-</div>

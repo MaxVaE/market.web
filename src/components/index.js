@@ -1,6 +1,2 @@
-export { default as ChatComponent } from './lib/ChatComponent/ChatComponent.vue'
 export { default as HeaderComponent } from './lib/HeaderComponent/HeaderComponent.vue'
 export { default as FooterComponent } from './lib/FooterComponent/FooterComponent.vue'
-export { default as LogInComponent } from './lib/LogInComponent/LogInComponent.vue'
-export { default as ButtonAccount } from './lib/ButtonAccount/ButtonAccount.vue'
-export { default as RegisterComponent } from './lib/RegisterComponent/RegisterComponent.vue'
