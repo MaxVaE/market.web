@@ -1,0 +1,8 @@
+<div class="root-main-component">
+	<div class="slider">
+    <div v-for="item in product" class="slider__item">
+      <img :src="item.image" class="slider__image">
+      <p>{{ item.text }}</p>
+    </div>
+  </div>
+</div>

@@ -3,6 +3,7 @@
 
 .root-footer-component {
 	@include flex(row-reverse, row-reverse, flex-end);
+	position: fixed down;
 	height: 100px;
 	color: $color-white;
 	background-color: $color-gray;
