@@ -9,7 +9,8 @@ export default {
   data () {
     return {
       sort: 'Наши товары',
-      lengthProducts: 0
+      lengthProducts: 0,
+      bool: false
     }
   },
   methods: {
@@ -18,6 +19,9 @@ export default {
     },
     addsProductsInBasket (length) {
       this.lengthProducts = length
+    },
+    openBasketFunc (openBasket) {
+      this.bool = openBasket
     }
   }
 }

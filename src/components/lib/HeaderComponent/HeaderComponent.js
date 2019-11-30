@@ -5,7 +5,7 @@ export default {
   data () {
     return {
       title: ['Акции', 'Бренды', 'Книги', 'Магазины', 'Сертификаты', 'Электроника'],
-      basketClose: 'false'
+      openBasketBool: false
     }
   },
   computed: {
@@ -16,6 +16,12 @@ export default {
   methods: {
     clickSort (item) {
       this.$emit('sort', item)
+    },
+    clickBasket () {
+      if (this.lengthProducts > 0) {
+        this.openBasketBool = !this.openBasketBool
+      }
+      this.$emit('OpenBasket', this.openBasketBool)
     }
   }
 }

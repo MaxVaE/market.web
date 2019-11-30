@@ -1,5 +1,7 @@
 <div class="root-main-component">
-  <!-- <basket-component /> -->
+  <div v-if="openBasket">
+    <basket-component v-bind:sellProducts="arraySellProducts"/>
+  </div>
 	<div class="slider">
     <div v-for="item in allProducts" class="slider__item">
       <img :src="item.image" class="slider__image">

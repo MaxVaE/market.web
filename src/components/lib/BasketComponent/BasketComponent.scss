@@ -2,12 +2,54 @@
 @import 'src/styles/variables';
 
 .root-basket-component {
-	@include flex(row, space-between, flex-start);
-	color: $color-white;
-	background-color: $color-gray;
-	margin: 40px 100px;
-	height: 500px;
-	width: 1000px;
+	@include flex(column, space-between, flex-start);
 	position: fixed;
 	z-index: 999999;
+	// background-color: $color-white;
+	.basket-window {
+		border: 1px $color-black solid;
+		color: $color-white;
+		background-color: $color-white;
+		margin: 40px 100px 0;
+		height: 500px;
+		width: 1000px;
+		overflow-y: scroll;
+		overflow-x: hidden;
+		.product {
+			@include flex(row, flex-start, flex-start);
+			border: 5px $color-white solid;
+			background-color: $color-gray;
+			.image {
+				background-size: cover;
+				margin: 5px;
+				width: 250px;
+				min-height: 150px;
+				border-radius: 10px;
+			}
+			.price-last {
+				text-decoration: line-through;
+			}
+			.end-list-products {
+				margin-left: 20px;
+			}
+		}
+	}
+	.accept {
+		position: relative;
+		background-color: $color-black;
+		color: $color-white;
+		border-radius: 15px;
+		// margin-left: 100px;
+		// margin: 40px 100px;
+		margin-bottom: 5px;
+		height: 40px;
+		width: 980px;
+		outline: none;
+		border: 0;
+		font-size: 20px;
+		&:active {
+			background-color: $color-white;
+			color: $color-black;
+		}
+	}
 }

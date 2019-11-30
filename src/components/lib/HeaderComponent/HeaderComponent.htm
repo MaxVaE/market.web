@@ -1,13 +1,15 @@
-<div class="root-header-component">	
-	<router-link class="logo" to="/" tag="button">
-		Black Friday
-	</router-link>
+<div class="root-header-component">
+	<button @click="clickSort('Наш товар')">
+			<router-link class="logo" to="/" tag="button">
+				Black Friday
+			</router-link>
+	</button>
 	<div v-for="item in title" @click="clickSort(item)">
 		<router-link class="title" to="/" tag="button">
 			{{ item }}
 		</router-link>
 	</div>
-	<button class="basket" :class="{ 'disabled' : basketOpen }">
+	<button class="basket" :class="{ 'disabled' : basketOpen }" @click="clickBasket">
 		<img src="/image/ico-basket.svg">
 		<p class="length-products" :class="{ 'disabled' : basketOpen }">{{ lengthProducts }}</p>
 		Корзина

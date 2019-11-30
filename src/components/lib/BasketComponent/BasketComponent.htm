@@ -1,3 +1,21 @@
 <div class="root-basket-component">
-111
+  <div class="basket-window">
+    <div v-for="item in getSellProducts" class="product">
+      <img :src="item.image" class="image">
+      <div>
+        <p>Брэнд: {{ item.brand }}</p>
+        <p>Характеристики: {{ item.text }}</p>
+        <p>
+          Цена: 
+          <span class="price-last">{{ item.lastPrice }}</span>
+          {{ item.price }}
+        </p>
+      </div>
+      <div class="end-list-products">
+        <p>Кол-во товара: {{ item.count }}</p>
+        <p>Стоимость:</p>
+      </div>
+    </div>
+    <button class="accept">Оформить заказ</button>
+  </div>
 </div>
