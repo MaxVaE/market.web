@@ -1,3 +1,11 @@
 <div class="root-header-component">
-	Рандомный Чат для двоих
+	<button class="logo">
+		Black Friday
+	</button>
+	<button v-for="item in title" class="title" @click="clickSort(item)">
+		{{ item }}
+	</button>
+	<button class="title">
+			Корзина
+	</button>
 </div>

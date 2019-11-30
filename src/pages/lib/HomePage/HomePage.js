@@ -6,8 +6,17 @@ export default {
     HeaderComponent,
     MainComponent
   },
+  props: {
+    title: String
+  },
   data () {
     return {
+      sort: ''
+    }
+  },
+  methods: {
+    sortParam (param) {
+      this.sort = param
     }
   }
 }
