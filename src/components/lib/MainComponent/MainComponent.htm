@@ -2,7 +2,20 @@
 	<div class="slider">
     <div v-for="item in product" class="slider__item">
       <img :src="item.image" class="slider__image">
-      <p>{{ item.text }}</p>
+      <p>{{ item.text }} <br />
+        <span class="slider__brand">
+          {{ item.brand }}
+        </span>
+      </p>
+      <span class="slider__price">{{ item.price }} <br />
+        <div class="buy">
+          <span class="slider__price-last">
+            {{ item.lastPrice }}
+          </span>
+          <button class="basket"></button>
+        </div>
+      </span>
+      </div>
     </div>
   </div>
 </div>

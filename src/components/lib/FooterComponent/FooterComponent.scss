@@ -5,6 +5,8 @@
 	@include flex(row, space-between, flex-start);
 	color: $color-white;
 	background-color: $color-gray;
+	bottom: 0;
+	margin-top: 50px;
 	padding: 20px;
 	.flex-reserved {
 		@include flex(column, flex-start, flex-start);
