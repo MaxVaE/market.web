@@ -5,8 +5,17 @@ export default {
     FooterComponent,
     HeaderComponent
   },
+  props: {
+    title: String
+  },
   data () {
     return {
+      sort: ''
+    }
+  },
+  methods: {
+    sortParam (param) {
+      this.sort = param
     }
   }
 }

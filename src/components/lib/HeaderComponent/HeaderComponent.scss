@@ -2,8 +2,20 @@
 @import 'src/styles/variables';
 
 .root-header-component {
-	@include flex(center, center, center);
+	@include flex(row, space-around, center);
 	height: 100px;
-	color: $color-white;
 	background-color: $color-black;
+	button {
+		cursor: pointer;
+		color: $color-white;
+		background-color: $color-black;
+		border: 0;
+		outline: none;
+	}
+	.logo {
+		font-size: 50px;
+	}
+	.title {
+		font-size: 20px;
+	}
 }
