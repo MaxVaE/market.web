@@ -2,8 +2,20 @@
 @import 'src/styles/variables';
 
 .root-footer-component {
-	@include flex(row-reverse, row-reverse, flex-end);
-	height: 100px;
+	@include flex(row, space-between, flex-start);
 	color: $color-white;
 	background-color: $color-gray;
+	padding: 20px;
+	.flex-reserved {
+		@include flex(column, flex-start, flex-start);
+	}
+}
+p {
+	margin: 3px;
+	font-size: 13px;
+}
+u {
+	margin: 3px;
+	margin-bottom: 10px;
+	font-size: 13px;
 }
