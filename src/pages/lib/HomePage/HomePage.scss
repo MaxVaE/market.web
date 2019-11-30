@@ -1,0 +1,10 @@
+@import 'src/styles/mixins';
+@import 'src/styles/variables';
+
+.root-home-page {
+	@include flex(column, flex-start, stretch);
+	height: 100%;
+	width: $content-max-width;
+	margin: 0 auto;
+	background-color: lightgrey;
+}

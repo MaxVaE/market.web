@@ -1,0 +1,9 @@
+@import 'src/styles/mixins';
+@import 'src/styles/variables';
+
+.root-header-component {
+	@include flex(center, center, center);
+	height: 100px;
+	color: $color-white;
+	background-color: $color-green;
+}
