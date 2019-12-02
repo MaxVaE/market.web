@@ -1,6 +1,6 @@
 export default {
   props: {
-    sellProducts: Array
+    sellProducts: Object
   },
   computed: {
     getSellProducts () {

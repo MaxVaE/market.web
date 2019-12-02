@@ -1,21 +1,21 @@
 <div class="root-basket-component">
   <div class="basket-window">
-    <div v-for="item in getSellProducts" class="product">
-      <img :src="item.image" class="image">
+    <div v-for="item in sellProducts.arraySellProducts" class="product">
+      <img :src="'http://chelhack.deletestaging.com' + item.imageUrl" class="image">
       <div>
         <p>Брэнд: {{ item.brand }}</p>
-        <p>Характеристики: {{ item.text }}</p>
+        <p>Характеристики: {{ item.title }}</p>
         <p>
           Цена: 
-          <span class="price-last">{{ item.lastPrice }}</span>
+          <span class="price-last">{{ item.finalPrice }}</span>
           {{ item.price }}
         </p>
       </div>
       <div class="end-list-products">
-        <p>Кол-во товара: {{ item.count }}</p>
-        <p>Стоимость:</p>
+        <p>Кол-во товара: {{ item.counter }}</p>
+        <p>Стоимость: {{ item.allPriceProduct }}</p>
       </div>
     </div>
-    <button class="accept">Оформить заказ</button>
+    <button class="accept">Оформить заказ на {{ sellProducts.allPrice }}</button>
   </div>
 </div>

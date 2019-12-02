@@ -1,19 +1,20 @@
 <div class="root-main-component">
+  <button @click="newData">НАЖАТЬ</button>
   <div v-if="openBasket">
-    <basket-component v-bind:sellProducts="arraySellProducts"/>
+    <basket-component v-bind:sellProducts="sellProducts"/>
   </div>
 	<div class="slider">
     <div v-for="item in allProducts" class="slider__item">
-      <img :src="item.image" class="slider__image">
-      <p>{{ item.text }} <br />
+      <img :src="'http://chelhack.deletestaging.com' + item.imageUrl" class="slider__image">
+      <p>{{ item.title }} <br />
         <span class="slider__brand">
           {{ item.brand }}
         </span>
       </p>
-      <span class="slider__price">{{ item.price }} <br />
+      <span class="slider__price">{{ item.finalPrice }} <br />
         <div class="buy">
           <span class="slider__price-last">
-            {{ item.lastPrice }}
+            {{ item.price }}
           </span>
           <button class="basket" v-on:click="addProduct(item)"></button>
         </div>

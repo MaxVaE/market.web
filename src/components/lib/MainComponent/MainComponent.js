@@ -1,4 +1,4 @@
-// import axios from 'axios'
+import axios from 'axios'
 import BasketComponent from '@/components/lib/BasketComponent/BasketComponent.vue'
 
 export default {
@@ -10,42 +10,84 @@ export default {
   },
   data () {
     return {
-      allProducts: [
-        { id: 1, image: 'http://html.xpager.ru/hakaton/img/photos/1.jpg', text: 'Hello World one', brand: 'Apple', price: '120 000 Р', lastPrice: '145 000 Р', count: 1 },
-        { id: 2, image: 'http://html.xpager.ru/hakaton/img/photos/2.jpg', text: 'Hello World two Hello World two Hello World two Hello World two Hello World two Hello World two ', brand: 'HP', price: '100 000 Р', lastPrice: '115 000 Р', count: 1 },
-        { id: 3, image: 'http://html.xpager.ru/hakaton/img/photos/1.jpg', text: 'Hello World one', brand: 'Apple', price: '120 000 Р', lastPrice: '145 000 Р', count: 1 },
-        { id: 4, image: 'http://html.xpager.ru/hakaton/img/photos/2.jpg', text: 'Hello World two', brand: 'HP', price: '100 000 Р', lastPrice: '115 000 Р', count: 1 },
-        { id: 5, image: 'http://html.xpager.ru/hakaton/img/photos/1.jpg', text: 'Hello World one', brand: 'Apple', price: '120 000 Р', lastPrice: '145 000 Р', count: 1 },
-        { id: 6, image: 'http://html.xpager.ru/hakaton/img/photos/2.jpg', text: 'Hello World two', brand: 'HP', price: '100 000 Р', lastPrice: '115 000 Р', count: 1 },
-        { id: 7, image: 'http://html.xpager.ru/hakaton/img/photos/1.jpg', text: 'Hello World one', brand: 'Apple', price: '120 000 Р', lastPrice: '145 000 Р', count: 1 },
-        { id: 8, image: 'http://html.xpager.ru/hakaton/img/photos/2.jpg', text: 'Hello World two', brand: 'HP', price: '100 000 Р', lastPrice: '115 000 Р', count: 1 },
-        { id: 9, image: 'http://html.xpager.ru/hakaton/img/photos/1.jpg', text: 'Hello World one', brand: 'Apple', price: '120 000 Р', lastPrice: '145 000 Р', count: 1 },
-        { id: 10, image: 'http://html.xpager.ru/hakaton/img/photos/2.jpg', text: 'Hello World two', brand: 'HP', price: '100 000 Р', lastPrice: '115 000 Р', count: 1 },
-        { id: 11, image: 'http://html.xpager.ru/hakaton/img/photos/1.jpg', text: 'Hello World one', brand: 'Apple', price: '120 000 Р', lastPrice: '145 000 Р', count: 1 },
-        { id: 12, image: 'http://html.xpager.ru/hakaton/img/photos/2.jpg', text: 'Hello World two', brand: 'HP', price: '100 000 Р', lastPrice: '115 000 Р', count: 1 }
-      ],
-      arraySellProducts: [],
-      countBuyProduct: 0
+      allProducts: [],
+      countBuyProduct: 0,
+      objCounter: {
+        counter: +1,
+        allPriceProduct: +0
+      },
+      sellProducts: {
+        arraySellProducts: [],
+        allPrice: +0
+      }
     }
   },
   methods: {
     addProduct (item) {
       let idNotSimilar = true
-      for (let i = 0; i < this.arraySellProducts.length; i++) {
-        if (this.arraySellProducts[i].id === item.id) {
-          this.arraySellProducts[i].count++
+      const length = this.sellProducts.arraySellProducts.length
+      let i
+      for (i = 0; i < length; i++) {
+        if (this.sellProducts.arraySellProducts[i].prodId === item.prodId) {
+          this.sellProducts.arraySellProducts[i].counter++
+          this.sellProducts.arraySellProducts[i].allPriceProduct += +this.sellProducts.arraySellProducts[i].finalPrice
           idNotSimilar = false
           break
         }
       }
       if (idNotSimilar) {
-        this.arraySellProducts[this.arraySellProducts.length] = item
+        this.sellProducts.arraySellProducts[length] = item
+        this.sellProducts.arraySellProducts[length] = Object.assign(this.sellProducts.arraySellProducts[length], this.objCounter)
+        this.sellProducts.arraySellProducts[i].allPriceProduct += +this.sellProducts.arraySellProducts[i].finalPrice
       }
+      this.sellProducts.allPrice += +this.sellProducts.arraySellProducts[i].finalPrice
       this.countBuyProduct++
       this.lengthProduct()
     },
     lengthProduct () {
       return this.$emit('addsProducts', this.countBuyProduct)
+    },
+    newData: async function () {
+      try {
+        const { data } = await axios.get('http://192.168.1.6/BlackFriday1/BalckFriday/12')
+        this.allProducts = data
+      } catch (error) {
+        console.log(error)
+      }
     }
   }
 }
+
+// {
+//   'prodId': 144152323,
+//   'title': '15.6\' Ноутбук Lenovo ThinkPad P51, черный',
+//   'availability': true,
+//   'price': '185439',
+//   'finalPrice': '159520',
+//   'category': 'Laptops',
+//   'brand': 'Lenovo',
+//   'quantity': 62,
+//   'imageUrl': '/images/144152323.jpg',
+//   'parameters': [
+//     {
+//       'title': 'Resolution',
+//       'value': '3840x2160'
+//     },
+//     {
+//       'title': 'Diagonal',
+//       'value': '13.3\''
+//     },
+//     {
+//       'title': 'OS',
+//       'value': 'Windows 10 Home'
+//     },
+//     {
+//       'title': 'SSD',
+//       'value': '512'
+//     },
+//     {
+//       'title': 'RAM',
+//       'value': '12'
+//     }
+//   ]
+// }
