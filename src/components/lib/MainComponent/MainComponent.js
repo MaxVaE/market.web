@@ -46,7 +46,7 @@ export default {
     },
     newData: async function () {
       try {
-        const { data } = await axios.get('http://192.168.1.6/BlackFriday1/BalckFriday/12')
+        const { data } = await axios.get('http://192.168.1.6/BlackFriday1/BlackFriday/12')
         this.allProducts = data
       } catch (error) {
         console.log(error)
