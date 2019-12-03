@@ -5,7 +5,12 @@
 	@include flex(column, space-between, flex-start);
 	position: fixed;
 	z-index: 999999;
-	// background-color: $color-white;
+	.close {
+		border-radius: 20px;
+		outline: none;
+		width: 50px;
+		height: 50px;
+	}
 	.basket-window {
 		border: 1px $color-black solid;
 		color: $color-white;
@@ -13,7 +18,7 @@
 		margin: 40px 100px 0;
 		height: 500px;
 		width: 1000px;
-		overflow-y: scroll;
+		overflow-y: auto;
 		overflow-x: hidden;
 		.product {
 			@include flex(row, flex-start, flex-start);

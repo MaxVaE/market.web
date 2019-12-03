@@ -13,34 +13,31 @@ export default {
       allProducts: [],
       countBuyProduct: 0,
       objCounter: {
-        counter: +1,
-        allPriceProduct: +0
+        counter: 1,
+        allPriceProduct: 0
       },
       sellProducts: {
         arraySellProducts: [],
-        allPrice: +0
+        allPrice: 0
       }
     }
   },
   methods: {
     addProduct (item) {
-      let idNotSimilar = true
       const length = this.sellProducts.arraySellProducts.length
-      let i
-      for (i = 0; i < length; i++) {
-        if (this.sellProducts.arraySellProducts[i].prodId === item.prodId) {
-          this.sellProducts.arraySellProducts[i].counter++
-          this.sellProducts.arraySellProducts[i].allPriceProduct += +this.sellProducts.arraySellProducts[i].finalPrice
-          idNotSimilar = false
-          break
-        }
-      }
-      if (idNotSimilar) {
+      const indexProduct = this.sellProducts.arraySellProducts.findIndex((element) => {
+        return element.prodId === item.prodId
+      }, [item.prodId])
+      if (indexProduct === -1) {
         this.sellProducts.arraySellProducts[length] = item
-        this.sellProducts.arraySellProducts[length] = Object.assign(this.sellProducts.arraySellProducts[length], this.objCounter)
-        this.sellProducts.arraySellProducts[i].allPriceProduct += +this.sellProducts.arraySellProducts[i].finalPrice
+        this.sellProducts.arraySellProducts[length] = { ...this.sellProducts.arraySellProducts[length], ...this.objCounter }
+        this.sellProducts.arraySellProducts[length].allPriceProduct += +this.sellProducts.arraySellProducts[length].finalPrice
+        this.sellProducts.allPrice += +this.sellProducts.arraySellProducts[length].finalPrice
+      } else {
+        this.sellProducts.arraySellProducts[indexProduct].counter++
+        this.sellProducts.arraySellProducts[indexProduct].allPriceProduct += +this.sellProducts.arraySellProducts[indexProduct].finalPrice
+        this.sellProducts.allPrice += +this.sellProducts.arraySellProducts[indexProduct].finalPrice
       }
-      this.sellProducts.allPrice += +this.sellProducts.arraySellProducts[i].finalPrice
       this.countBuyProduct++
       this.lengthProduct()
     },
@@ -54,6 +51,9 @@ export default {
       } catch (error) {
         console.log(error)
       }
+    },
+    closeBasket (bool) {
+      this.$emit('closeBasket', bool)
     }
   }
 }

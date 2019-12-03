@@ -1,7 +1,7 @@
 <div class="root-main-component">
   <button @click="newData">НАЖАТЬ</button>
   <div v-if="openBasket">
-    <basket-component v-bind:sellProducts="sellProducts"/>
+    <basket-component v-bind:sellProducts="sellProducts" v-on:closeBasket="closeBasket"/>
   </div>
 	<div class="slider">
     <div v-for="item in allProducts" class="slider__item">

@@ -1,6 +1,6 @@
 <div class="root-home-page">
 	<header-component v-on:sort="sortParam" v-bind:lengthProducts="lengthProducts" v-on:OpenBasket="openBasketFunc"/>
 	<h3>| {{ sort }}</h3>
-	<main-component @addsProducts="addsProductsInBasket" v-bind:openBasket="bool"/>
+	<main-component @addsProducts="addsProductsInBasket" v-bind:openBasket="bool" v-on:closeBasket="closeBasket"/>
 	<footer-component />
 </div>

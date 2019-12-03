@@ -22,6 +22,9 @@ export default {
     },
     openBasketFunc (openBasket) {
       this.bool = openBasket
+    },
+    closeBasket (bo) {
+      this.openBasketFunc(bo)
     }
   }
 }

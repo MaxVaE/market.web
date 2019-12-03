@@ -1,0 +1,11 @@
+<div class="root-orders-component">
+  <h2>Оформить заказ</h2>
+  <div class="flex-inputs">
+    <input placeholder="Ваше имя" v-model="profile.firstName" @keydown="Enter"></input>
+    <input placeholder="Ваша фамилия" v-model="profile.lastName" @keydown="Enter"></input>
+    <input placeholder="Почта" v-model="profile.email" @keydown="Enter"></input>
+    <input placeholder="Адрес" v-model="profile.adress" @keydown="Enter"></input>
+    <input placeholder="Номер телефона" v-model="profile.phone" @keydown="Enter"></input>
+  </div>
+  <button class="accept" @click="postOrders">Оформить</button>
+</div>
