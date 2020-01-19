@@ -1,27 +1,32 @@
+import { mapMutations, mapState } from 'vuex'
+
 export default {
-  props: {
-    lengthProducts: Number
-  },
   data () {
     return {
-      title: ['Акции', 'Бренды', 'Книги', 'Магазины', 'Сертификаты', 'Электроника'],
-      openBasketBool: false
+      title: ['Акции', 'Бренды', 'Книги', 'Магазины', 'Сертификаты', 'Электроника']
     }
   },
   computed: {
     basketOpen () {
-      return !this.lengthProducts > 0
-    }
+      return this.countAddProductsInBasket <= 0
+    },
+    ...mapState([
+      'countAddProductsInBasket'
+    ])
   },
   methods: {
     clickSort (item) {
       this.$emit('sort', item)
     },
     clickBasket () {
-      if (this.lengthProducts > 0) {
-        this.openBasketBool = !this.openBasketBool
+      if (this.countAddProductsInBasket > 0) {
+        this.openBasket()
       }
-      this.$emit('OpenBasket', this.openBasketBool)
-    }
+    },
+    ...mapMutations([
+      'increment',
+      'decrement',
+      'openBasket'
+    ])
   }
 }

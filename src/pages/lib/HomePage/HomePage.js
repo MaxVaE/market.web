@@ -8,23 +8,12 @@ export default {
   },
   data () {
     return {
-      sort: 'Наши товары',
-      lengthProducts: 0,
-      bool: false
+      sort: 'Наши товары'
     }
   },
   methods: {
     sortParam (param) {
       this.sort = param
-    },
-    addsProductsInBasket (length) {
-      this.lengthProducts = length
-    },
-    openBasketFunc (openBasket) {
-      this.bool = openBasket
-    },
-    closeBasket (bo) {
-      this.openBasketFunc(bo)
     }
   }
 }

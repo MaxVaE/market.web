@@ -1,16 +1,17 @@
 import OrdersComponent from '@/components/lib/OrdersComponent/OrdersComponent.vue'
+import { mapMutations } from 'vuex'
 
 export default {
   components: {
     OrdersComponent
   },
-  props: {
-    sellProducts: Object
-  },
   data () {
     return {
-      basketOpen: true
+      placeOrder: true
     }
+  },
+  props: {
+    sellProducts: Object
   },
   computed: {
     getSellProducts () {
@@ -18,12 +19,11 @@ export default {
     }
   },
   methods: {
-    Orders () {
-      this.basketOpen = !this.basketOpen
-    },
-    closeBasket () {
-      this.basketOpen = false
-      this.$emit('closeBasket', false)
+    ...mapMutations([
+      'openBasket'
+    ]),
+    openOrders () {
+      this.placeOrder = !this.placeOrder
     }
   }
 }

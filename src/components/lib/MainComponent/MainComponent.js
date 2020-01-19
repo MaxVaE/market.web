@@ -1,16 +1,14 @@
 import axios from 'axios'
 import BasketComponent from '@/components/lib/BasketComponent/BasketComponent.vue'
+import { mapMutations, mapState } from 'vuex'
 
 export default {
   components: {
     BasketComponent
   },
-  props: {
-    openBasket: Boolean
-  },
   data () {
     return {
-      allProducts: [],
+      allProducts: [{ image: '1', text: 'Hello World one', brand: 'Apple', price: '120 000 Р', lastPrice: '145 000 Р' }],
       countBuyProduct: 0,
       objCounter: {
         counter: 1,
@@ -21,6 +19,11 @@ export default {
         allPrice: 0
       }
     }
+  },
+  computed: {
+    ...mapState([
+      'openBasketBool'
+    ])
   },
   methods: {
     addProduct (item) {
@@ -39,14 +42,14 @@ export default {
         this.sellProducts.allPrice += +this.sellProducts.arraySellProducts[indexProduct].finalPrice
       }
       this.countBuyProduct++
-      this.lengthProduct()
+      this.increment()
     },
-    lengthProduct () {
-      return this.$emit('addsProducts', this.countBuyProduct)
-    },
+    ...mapMutations([
+      'increment'
+    ]),
     newData: async function () {
       try {
-        const { data } = await axios.get('http://192.168.1.6/BlackFriday1/BlackFriday/12')
+        const { data } = await axios.get('http://192.168.1.6/BlackFriday/12')
         this.allProducts = data
       } catch (error) {
         console.log(error)

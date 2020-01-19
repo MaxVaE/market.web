@@ -42,8 +42,8 @@ export default {
           console.log('weergresdg: ', array)
           const postObj = JSON.stringify({ ...this.profile, array })
           console.log({ ...this.profile, array })
-          console.log('JSON', postObj)
-          const { status } = await axios.post('http://192.168.1.6/BlackFriday1/BlackFriday', postObj, {
+          console.log('JSON = ', postObj)
+          const { status } = await axios.post('http://192.168.1.6/BlackFriday', postObj, {
             headers: {
               'Content-Type': 'application/json'
             }

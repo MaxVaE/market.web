@@ -11,7 +11,7 @@
 	</div>
 	<button class="basket" :class="{ 'disabled' : basketOpen }" @click="clickBasket">
 		<img src="/image/ico-basket.svg">
-		<p class="length-products" :class="{ 'disabled' : basketOpen }">{{ lengthProducts }}</p>
+		<p class="length-products" :class="{ 'disabled' : basketOpen }">{{ countAddProductsInBasket }}</p>
 		Корзина
 	</button>
 </div>

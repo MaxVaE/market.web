@@ -1,7 +1,7 @@
 <div class="root-basket-component">
-  <button class="close" @click="closeBasket"></button>
+  <button class="close" @click="openBasket"></button>
   <div class="basket-window">
-    <div v-if="basketOpen">
+    <div v-if="placeOrder">
       <div v-for="item in sellProducts.arraySellProducts" class="product">
         <img :src="'http://chelhack.deletestaging.com' + item.imageUrl" class="image">
           <div>
@@ -18,7 +18,7 @@
             <p>Стоимость: {{ item.allPriceProduct }}</p>
           </div>
         </div>
-      <button class="accept" @click="Orders">Оформить заказ на {{ sellProducts.allPrice }}</button>
+      <button class="accept" @click="openOrders">Оформить заказ на {{ sellProducts.allPrice }}</button>
     </div>
     <div v-else>
       <div>

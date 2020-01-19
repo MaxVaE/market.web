@@ -1,23 +1,27 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import * as modules from './modules'
+// import * as modules from './modules'
 
 Vue.use(Vuex)
 
 export default function () {
   const store = new Vuex.Store({
-    modules: Object.entries(modules)
-      .map(([key, factory]) => {
-        return {
-          key,
-          value: factory()
-        }
-      })
-      .reduce((t, entry) => ({
-        ...t,
-        [entry.key]: entry.value
-      }), {})
+    state: {
+      countAddProductsInBasket: 0,
+      openBasketBool: false
+    },
+    mutations: {
+      increment (state) {
+        state.countAddProductsInBasket++
+      },
+      decrement (state) {
+        state.countAddProductsInBasket--
+      },
+      openBasket (state) {
+        state.openBasketBool = !state.openBasketBool
+      }
+    }
   })
 
   return store
