@@ -1,7 +1,6 @@
-<div class="root-main-component">
-  <!-- <button @click="newData">НАЖАТЬ</button> -->
+<div class="root-market-component">
   <div v-if="openBasketBool">
-    <basket-component v-bind:sellProducts="sellProducts"/>
+    <basket-component/>
   </div>
 	<div class="slider">
     <div v-for="item in allProducts" class="slider__item">
@@ -16,7 +15,7 @@
           <span class="slider__price-last">
             {{ item.price }}
           </span>
-          <button class="basket" v-on:click="addProduct(item)"></button>
+          <button class="basket" v-on:click="addSellProduct(item)"></button>
         </div>
       </span>
       </div>

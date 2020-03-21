@@ -1,10 +1,10 @@
-import { HeaderComponent, FooterComponent, MainComponent } from 'src/components'
+import { HeaderComponent, FooterComponent, MarketComponent } from 'src/components'
 
 export default {
   components: {
     FooterComponent,
     HeaderComponent,
-    MainComponent
+    MarketComponent
   },
   data () {
     return {

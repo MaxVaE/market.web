@@ -12,10 +12,17 @@
 		input {
 			padding: 10px;
 			margin-left: 350px;
-			margin-bottom: 20px;
 			border-radius: 20px;
 			outline: none;
 			width: 250px;
+		}
+		.error {
+			margin-left: 430px;
+			color: $color-error;
+			font-size: 12px;
+			&.disabled {
+				color: $color-white;
+			}
 		}
 	}
 	.accept {

@@ -1,5 +1,5 @@
 import OrdersComponent from '@/components/lib/OrdersComponent/OrdersComponent.vue'
-import { mapMutations } from 'vuex'
+import { mapMutations, mapState } from 'vuex'
 
 export default {
   components: {
@@ -10,13 +10,10 @@ export default {
       placeOrder: true
     }
   },
-  props: {
-    sellProducts: Object
-  },
   computed: {
-    getSellProducts () {
-      return this.sellProducts
-    }
+    ...mapState([
+      'sellProducts'
+    ])
   },
   methods: {
     ...mapMutations([

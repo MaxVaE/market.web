@@ -1,11 +1,10 @@
 <div class="root-orders-component">
   <h2>Оформить заказ</h2>
-  <div class="flex-inputs">
-    <input placeholder="Ваше имя" v-model="profile.firstName" @keydown="Enter"></input>
-    <input placeholder="Ваша фамилия" v-model="profile.lastName" @keydown="Enter"></input>
-    <input placeholder="Почта" v-model="profile.email" @keydown="Enter"></input>
-    <input placeholder="Адрес" v-model="profile.address" @keydown="Enter"></input>
-    <input placeholder="Номер телефона" v-model="profile.phone" @keydown="Enter"></input>
-  </div>
-  <button class="accept" @click="postOrders">Оформить</button>
+  <form class="flex-inputs">
+    <div v-for="item in profile">
+      <input :placeholder="item.name" v-model="item.text" @keydown="Enter"></input>
+      <p class="error" :class="{ 'disabled' : !item.error.errorFlag }">{{item.error.errorText}}</p> 
+    </div>
+  </form>
+  <input class="accept" type="submit" @click="postOrders" value="Оформить"></input>
 </div>

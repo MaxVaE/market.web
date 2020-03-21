@@ -1,17 +1,50 @@
 import axios from 'axios'
+import { mapState } from 'vuex'
 
 export default {
-  props: {
-    sellProducts: Object
-  },
   data () {
     return {
       profile: {
-        firstName: 'firstName',
-        lastName: 'lastName',
-        email: 'email',
-        address: 'adress',
-        phone: 'phone'
+        firstName: {
+          error: {
+            errorFlag: false,
+            errorText: ''
+          },
+          name: 'Ваше имя',
+          text: ''
+        },
+        lastName: {
+          error: {
+            errorFlag: false,
+            errorText: ''
+          },
+          name: 'Ваша фамилия',
+          text: ''
+        },
+        email: {
+          error: {
+            errorFlag: false,
+            errorText: ''
+          },
+          name: 'Ваша почта',
+          text: ''
+        },
+        address: {
+          error: {
+            errorFlag: false,
+            errorText: ''
+          },
+          name: 'Ваш адрес',
+          text: ''
+        },
+        phone: {
+          error: {
+            errorFlag: false,
+            errorText: ''
+          },
+          name: 'Ваш телефон',
+          text: ''
+        }
       },
       orders: {
         count: 0,
@@ -21,9 +54,9 @@ export default {
     }
   },
   computed: {
-    getSellProducts () {
-      return this.sellProducts
-    }
+    ...mapState([
+      'sellProducts'
+    ])
   },
   methods: {
     Enter (e) {
@@ -32,11 +65,23 @@ export default {
         this.postOrders()
       }
     },
+    errorName (profileObj) {
+      if (profileObj.text === '') {
+        profileObj.error.errorFlag = true
+        profileObj.error.errorText = '*Заполните поле'
+      } else {
+        profileObj.error.errorFlag = false
+        profileObj.error.errorText = ''
+      }
+    },
     checkNotEmpty () {
-      return this.profile.firstName === '' || this.profile.lastName === '' || this.profile.email === '' || this.profile.address === '' || this.profile.phone === ''
+      return this.profile.firstName.text === '' || this.profile.lastName.text === '' || this.profile.email.text === '' || this.profile.address.text === '' || this.profile.phone.text === ''
     },
     postOrders: async function () {
       try {
+        for (let profileObj in this.profile) {
+          this.errorName(this.profile[profileObj])
+        }
         if (!this.checkNotEmpty()) {
           const array = this.combineArray(this.sellProducts.arraySellProducts)
           console.log('weergresdg: ', array)
@@ -63,3 +108,5 @@ export default {
     }
   }
 }
+
+// для валидации используй vuelidate
