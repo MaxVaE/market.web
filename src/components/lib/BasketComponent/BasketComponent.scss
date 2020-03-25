@@ -36,6 +36,19 @@
 			}
 			.end-list-products {
 				margin-left: 20px;
+				.delete {
+					background-color: $color-blue;
+					outline: none;
+					border: 0;
+					color: $color-white;
+					font-size: 16px;
+					width: 100px;
+					height: 25px;
+					&:active {
+						background-color: $color-white;
+						color: $color-black;
+					}
+				}
 			}
 		}
 	}

@@ -9,14 +9,14 @@
             <p>Характеристики: {{ item.title }}</p>
             <p>
               Цена: 
-              <span class="price-last">{{ item.finalPrice }}</span>
-              {{ item.price }}
+              <span class="price-last">{{ item.price }}</span>
+              {{ item.finalPrice }}
             </p>
           </div>
           <div class="end-list-products">
             <p>Кол-во товара: {{ item.counter }}</p>
             <p>Стоимость: {{ item.allPriceProduct }}</p>
-            <button @click="deletedProduct(item)">delete</button>
+            <button class="delete" @click="deletedProduct(item)">delete</button>
           </div>
         </div>
       <button class="accept" @click="openOrders">Оформить заказ на {{ sellProducts.allPrice }}</button>
