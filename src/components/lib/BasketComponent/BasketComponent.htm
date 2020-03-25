@@ -1,5 +1,5 @@
 <div class="root-basket-component">
-  <button class="close" @click="openBasket"></button>
+  <button class="close" @click="openBasket" style="background: url(/image/button_close.png)"></button>
   <div class="basket-window">
     <div v-if="placeOrder">
       <div v-for="item in sellProducts.arraySellProducts" class="product">
@@ -16,12 +16,14 @@
           <div class="end-list-products">
             <p>Кол-во товара: {{ item.counter }}</p>
             <p>Стоимость: {{ item.allPriceProduct }}</p>
+            <button @click="deletedProduct(item)">delete</button>
           </div>
         </div>
       <button class="accept" @click="openOrders">Оформить заказ на {{ sellProducts.allPrice }}</button>
     </div>
     <div v-else>
       <div>
+        <button class="back" @click="openOrders">back</button>
         <orders-component/>
       </div>
     </div>

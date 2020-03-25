@@ -49,8 +49,8 @@ export default {
       orders: {
         count: 0,
         id: 0
-      },
-      arrayOrders: []
+      }
+      // arrayOrders: []
     }
   },
   computed: {
@@ -84,10 +84,17 @@ export default {
         }
         if (!this.checkNotEmpty()) {
           const array = this.combineArray(this.sellProducts.arraySellProducts)
-          console.log('weergresdg: ', array)
-          const postObj = JSON.stringify({ ...this.profile, array })
-          console.log({ ...this.profile, array })
-          console.log('JSON = ', postObj)
+          // console.log('weergresdg: ', array)
+
+          let profileObj = {}
+          for (let nameField in this.profile) {
+            profileObj[nameField] = this.profile[nameField].text
+          }
+          console.log('OBJECT = ', profileObj)
+          const postObj = JSON.stringify({ ...profileObj, array })
+
+          console.log({ ...profileObj, array })
+          // console.log('JSON = ', postObj)
           const { status } = await axios.post('http://192.168.1.6/BlackFriday', postObj, {
             headers: {
               'Content-Type': 'application/json'

@@ -17,8 +17,14 @@ export default {
   },
   methods: {
     ...mapMutations([
-      'openBasket'
+      'openBasket',
+      'removeProduct',
+      'decrement'
     ]),
+    deletedProduct (product) {
+      this.removeProduct(product.prodId)
+      this.decrement(product.counter)
+    },
     openOrders () {
       this.placeOrder = !this.placeOrder
     }

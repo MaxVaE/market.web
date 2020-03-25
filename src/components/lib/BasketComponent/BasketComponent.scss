@@ -4,18 +4,18 @@
 .root-basket-component {
 	@include flex(column, space-between, flex-start);
 	position: fixed;
-	z-index: 999999;
+	z-index: 3;
 	.close {
-		border-radius: 20px;
+		border-radius: 40px;
 		outline: none;
-		width: 50px;
-		height: 50px;
+		width: 68px;
+		height: 68px;
 	}
 	.basket-window {
 		border: 1px $color-black solid;
 		color: $color-white;
 		background-color: $color-white;
-		margin: 40px 100px 0;
+		margin: 20px 50px 0;
 		height: 500px;
 		width: 1000px;
 		overflow-y: auto;
@@ -56,5 +56,18 @@
 			background-color: $color-white;
 			color: $color-black;
 		}
+	}
+	.back {
+		position: relative;
+		background-color: $color-black;
+		color: $color-white;
+		border-radius: 15px 0 0 15px;
+		margin-bottom: 5px;
+		// padding: 5px;
+		height: 30px;
+		width: 100px;
+		outline: none;
+		border: 0;
+		font-size: 20px;
 	}
 }

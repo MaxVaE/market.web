@@ -9,7 +9,7 @@ export default {
   data () {
     return {
       allProducts: [
-        { prodId: 144152323,
+        { prodId: 1,
           title: '15.6\' Ноутбук Lenovo ThinkPad P51, черный',
           brand: 'Lenovo',
           price: 185439,
@@ -19,7 +19,7 @@ export default {
           imageUrl: '/images/144152323.jpg',
           availability: true
         },
-        { prodId: 144252323,
+        { prodId: 2,
           title: '15.6\' Ноутбук Asser AP999, черный',
           brand: 'ASSER',
           price: 185339,

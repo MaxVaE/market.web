@@ -16,11 +16,11 @@ export default function () {
       }
     },
     mutations: {
-      increment (state) {
-        state.countAddProductsInBasket++
+      increment (state, number = 1) {
+        state.countAddProductsInBasket += number
       },
-      decrement (state) {
-        state.countAddProductsInBasket--
+      decrement (state, number = 1) {
+        state.countAddProductsInBasket -= number
       },
       openBasket (state) {
         state.openBasketBool = !state.openBasketBool
@@ -35,7 +35,7 @@ export default function () {
       addProduct (state, payload) {
         let indexProduct = state.sellProducts.arraySellProducts.findIndex(element => element.prodId === payload.prodId)
         if (indexProduct === -1) {
-          indexProduct = state.countAddProductsInBasket
+          indexProduct = state.sellProducts.arraySellProducts.length
           const objCounter = {
             counter: 0,
             allPriceProduct: 0
@@ -45,9 +45,10 @@ export default function () {
         state.sellProducts.arraySellProducts[indexProduct].counter++
         state.sellProducts.arraySellProducts[indexProduct].allPriceProduct += +payload.finalPrice
       },
-      removeProduct (state, payload) {
-        const index = state.sellProducts.arraySellProducts.findIndex(elem => elem.prodId === payload.prodId)
-        state.sellProducts.arraySellProducts.splice(index, index)
+      removeProduct (state, productId) {
+        const index = state.sellProducts.arraySellProducts.findIndex(elem => elem.prodId === productId)
+        state.sellProducts.allPrice -= state.sellProducts.arraySellProducts[index].allPriceProduct
+        state.sellProducts.arraySellProducts.splice(index, 1)
       }
     }
   })
