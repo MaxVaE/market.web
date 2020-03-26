@@ -4,6 +4,8 @@
 .root-basket-component {
 	@include flex(column, space-between, flex-start);
 	position: fixed;
+	// position: static;
+	// top: 100px;
 	z-index: 3;
 	.close {
 		border-radius: 40px;
@@ -36,6 +38,17 @@
 			}
 			.end-list-products {
 				margin-left: 20px;
+				.field {
+					width: 50px;
+					font-size: 16px;
+					height: 25px;
+					margin: 0 5px;
+				}
+				.minus-plus {
+					height: 25px;
+					font-size: 16px;
+					width: 30px;
+				}
 				.delete {
 					background-color: $color-blue;
 					outline: none;

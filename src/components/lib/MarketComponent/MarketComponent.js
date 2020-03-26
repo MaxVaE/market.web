@@ -28,6 +28,45 @@ export default {
           quantity: 57,
           imageUrl: '/images/144152323.jpg',
           availability: true
+        },
+        { prodId: 3,
+          title: '15.6\' Ноутбук Lenovo ThinkPad P51, черный',
+          brand: 'Lenovo',
+          price: 185439,
+          finalPrice: 159520,
+          category: 'Laptops',
+          quantity: 62,
+          imageUrl: '/images/144152323.jpg',
+          availability: true
+        },
+        { prodId: 4,
+          title: '15.6\' Ноутбук Asser AP999, черный',
+          brand: 'ASSER',
+          price: 185339,
+          finalPrice: 139520,
+          category: 'Laptops',
+          quantity: 57,
+          imageUrl: '/images/144152323.jpg',
+          availability: true
+        }, { prodId: 1,
+          title: '15.6\' Ноутбук Lenovo ThinkPad P51, черный',
+          brand: 'Lenovo',
+          price: 185439,
+          finalPrice: 159520,
+          category: 'Laptops',
+          quantity: 62,
+          imageUrl: '/images/144152323.jpg',
+          availability: true
+        },
+        { prodId: 5,
+          title: '15.6\' Ноутбук Asser AP999, черный',
+          brand: 'ASSER',
+          price: 185339,
+          finalPrice: 139520,
+          category: 'Laptops',
+          quantity: 57,
+          imageUrl: '/images/144152323.jpg',
+          availability: true
         }
       ]
     }

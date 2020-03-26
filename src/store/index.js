@@ -32,6 +32,17 @@ export default function () {
         state.sellProducts.allPrice -= price
       },
 
+      incrementCounter (state, edit) {
+        const indexProduct = state.sellProducts.arraySellProducts.findIndex(element => element.prodId === edit.id)
+        state.sellProducts.arraySellProducts[indexProduct].counter += edit.count
+        state.sellProducts.arraySellProducts[indexProduct].allPriceProduct += edit.count * state.sellProducts.arraySellProducts[indexProduct].finalPrice
+        state.sellProducts.allPrice += edit.count * state.sellProducts.arraySellProducts[indexProduct].finalPrice
+      },
+      decrementCounter (state, edit) {
+        state.sellProducts.arraySellProducts[edit.index].counter -= edit.positiveCount ? edit.count : 0
+        state.sellProducts.arraySellProducts[edit.index].allPriceProduct -= edit.newPrice
+      },
+
       addProduct (state, payload) {
         let indexProduct = state.sellProducts.arraySellProducts.findIndex(element => element.prodId === payload.prodId)
         if (indexProduct === -1) {
