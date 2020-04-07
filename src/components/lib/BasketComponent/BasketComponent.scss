@@ -82,6 +82,10 @@
 			background-color: $color-white;
 			color: $color-black;
 		}
+		&:disabled {
+			color: $color-black;
+			background-color: $color-gray;
+		}
 	}
 	.back {
 		position: relative;

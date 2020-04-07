@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-// import * as modules from './modules'
-
 Vue.use(Vuex)
 
 export default function () {
@@ -39,7 +37,7 @@ export default function () {
         state.sellProducts.allPrice += edit.count * state.sellProducts.arraySellProducts[indexProduct].finalPrice
       },
       decrementCounter (state, edit) {
-        state.sellProducts.arraySellProducts[edit.index].counter -= edit.positiveCount ? edit.count : 0
+        state.sellProducts.arraySellProducts[edit.index].counter -= edit.positiveCount ? edit.count : state.sellProducts.arraySellProducts[edit.index].counter - 1
         state.sellProducts.arraySellProducts[edit.index].allPriceProduct -= edit.newPrice
       },
 

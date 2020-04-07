@@ -3,7 +3,8 @@ import { mapMutations, mapState } from 'vuex'
 export default {
   data () {
     return {
-      title: ['Акции', 'Бренды', 'Книги', 'Магазины', 'Сертификаты', 'Электроника']
+      title: ['Акции', 'Бренды', 'Книги', 'Магазины', 'Сертификаты', 'Электроника'],
+      tagsActiveFlags: { 'Акции': false, 'Бренды': false, 'Книги': false, 'Магазины': false, 'Сертификаты': false, 'Электроника': false }
     }
   },
   computed: {
@@ -16,7 +17,13 @@ export default {
   },
   methods: {
     clickSort (item) {
-      this.$emit('sort', item)
+      for (let tmp in this.tagsActiveFlags) {
+        this.tagsActiveFlags[tmp] = false
+      }
+      this.tagsActiveFlags[item] = true
+    },
+    gitTags () {
+      // TO DO
     },
     clickBasket () {
       if (this.countAddProductsInBasket > 0) {

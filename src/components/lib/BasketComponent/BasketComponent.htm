@@ -16,14 +16,14 @@
           <div class="end-list-products">
             <p>Кол-во товара: {{ item.counter }}
               <button class="minus-plus" @click="plus(item.prodId)">+</button>
-              <input class="field" @change="editCounterProduct(item.prodId)"></input>
+              <input class="field" placeholder="1" @change="editCounterProduct(item.prodId)"></input>
               <button class="minus-plus" @click="minus(item.prodId)">-</button>
             </p>
             <p>Стоимость: {{ item.allPriceProduct }}</p>
             <button class="delete" @click="deletedProduct(item)">delete</button>
           </div>
         </div>
-      <button class="accept" @click="openOrders">Оформить заказ на {{ sellProducts.allPrice }}</button>
+      <button class="accept" :disabled="!haveCountBasket" @click="openOrders">Оформить заказ на {{ sellProducts.allPrice }}</button>
     </div>
     <div v-else>
       <div>

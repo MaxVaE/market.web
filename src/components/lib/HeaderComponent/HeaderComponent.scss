@@ -12,6 +12,14 @@
 		border: 0;
 		outline: none;
 	}
+	.active-button {
+		cursor: pointer;
+		color: $color-black;
+		background-color: $color-white;
+		height: 61px;
+		border: 0;
+		outline: none;
+	}
 	.logo {
 		font-size: 50px;
 	}

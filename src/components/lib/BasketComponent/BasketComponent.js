@@ -13,8 +13,12 @@ export default {
   },
   computed: {
     ...mapState([
-      'sellProducts'
-    ])
+      'sellProducts',
+      'countAddProductsInBasket'
+    ]),
+    haveCountBasket () {
+      return this.countAddProductsInBasket > 0
+    }
   },
   methods: {
     ...mapMutations([
@@ -31,34 +35,32 @@ export default {
       this.decrement(product.counter)
     },
     openOrders () {
-      this.placeOrder = !this.placeOrder
+      if (this.haveCountBasket) {
+        this.placeOrder = !this.placeOrder
+      }
     },
+
     editCounterProduct (productId) {
       const value = +event.target.value
       if (value > 0) {
         this.obj[productId] = +event.target.value
+      } else if (this.obj[productId] !== undefined) {
+        this.obj[productId] = 0
       }
-      // product.allPriceProduct = product.counter * product.finalPrice
-      // console.log(this.obj)
-      // event.target.value = ''
     },
     plus (productId) {
-      if (this.obj[productId] !== undefined) {
-        const count = this.obj[productId]
-        this.incrementCounter({ id: productId, count })
-        this.increment(count)
-      }
+      const count = this.obj[productId] !== undefined ? this.obj[productId] : 1
+      this.incrementCounter({ id: productId, count })
+      this.increment(count)
     },
     minus (productId) {
-      if (this.obj[productId] !== undefined) {
-        const count = this.obj[productId]
-        const indexProduct = this.sellProducts.arraySellProducts.findIndex(element => element.prodId === productId)
-        const positiveCount = this.sellProducts.arraySellProducts[indexProduct].counter - count > 0
-        const newPrice = positiveCount ? this.sellProducts.arraySellProducts[indexProduct].finalPrice * count : this.sellProducts.arraySellProducts[indexProduct].allPriceProduct - this.sellProducts.arraySellProducts[indexProduct].finalPrice
-        this.decrementCounter({ index: indexProduct, count, positiveCount, newPrice })
-        this.decrementPrice(newPrice)
-        this.decrement(positiveCount ? count : this.sellProducts.arraySellProducts[indexProduct].counter - 1)
-      }
+      const count = this.obj[productId] !== undefined ? this.obj[productId] : 1
+      const indexProduct = this.sellProducts.arraySellProducts.findIndex(element => element.prodId === productId)
+      const positiveCount = this.sellProducts.arraySellProducts[indexProduct].counter - count > 0
+      const newPrice = positiveCount ? this.sellProducts.arraySellProducts[indexProduct].finalPrice * count : this.sellProducts.arraySellProducts[indexProduct].allPriceProduct - this.sellProducts.arraySellProducts[indexProduct].finalPrice
+      this.decrement(positiveCount ? count : this.sellProducts.arraySellProducts[indexProduct].counter - 1)
+      this.decrementCounter({ index: indexProduct, count, positiveCount, newPrice })
+      this.decrementPrice(newPrice)
     }
   }
 }

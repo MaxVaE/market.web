@@ -1,19 +1,7 @@
-import { HeaderComponent, FooterComponent, MarketComponent } from 'src/components'
+import * as Components from 'src/components'
 
 export default {
   components: {
-    FooterComponent,
-    HeaderComponent,
-    MarketComponent
-  },
-  data () {
-    return {
-      sort: 'Наши товары'
-    }
-  },
-  methods: {
-    sortParam (param) {
-      this.sort = param
-    }
+    ...Components
   }
 }
