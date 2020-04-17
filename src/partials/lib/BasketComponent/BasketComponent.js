@@ -1,4 +1,4 @@
-import OrdersComponent from '@/components/lib/OrdersComponent/OrdersComponent.vue'
+import OrdersComponent from '@/partials/lib/OrdersComponent/OrdersComponent.vue'
 import { mapMutations, mapState } from 'vuex'
 
 export default {
