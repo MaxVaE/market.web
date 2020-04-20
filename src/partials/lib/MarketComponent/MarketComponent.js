@@ -1,5 +1,5 @@
 import axios from 'axios'
-import BasketComponent from '@/partials/lib/BasketComponent/BasketComponent.vue'
+import BasketComponent from '@/modals/lib/BasketComponent/BasketComponent.vue'
 import { mapMutations, mapState } from 'vuex'
 
 export default {

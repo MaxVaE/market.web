@@ -1,1 +1,1 @@
-// Здесь будут модалки
+export { default as BasketComponent } from './lib/BasketComponent/BasketComponent.vue'
